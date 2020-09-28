@@ -1,6 +1,7 @@
-##Improving Access with Synchronized Blocks
+#Improving Access with Synchronized Blocks
 
 ##Synchronizing on Methods
+
 We can establish a monitor using `synchronized(this)` around the body of the method.
 Java provides a more convenient compiler enhancement for doing so.
 We can add the `synchronized` modifier to any instance method to synchronize automatically on the object itself.
