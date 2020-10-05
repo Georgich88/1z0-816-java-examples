@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import static com.georgeisaev.ocp.concurrency.collections.skiplists.Animal.createBird;
 import static com.georgeisaev.ocp.concurrency.collections.skiplists.Animal.createMammal;
+import static com.georgeisaev.ocp.concurrency.collections.skiplists.AnimalNutrition.createAnimalNutrition;
 import static java.util.Comparator.comparing;
 import static java.util.Objects.hash;
 
@@ -26,56 +27,75 @@ public class SkipListExample {
 
     public static void main(String[] args) {
         populateAnimalGarden();
+        rainForestAnimalDiet();
+    }
+
+    private static void rainForestAnimalDiet() {
+        Map<Organism, Nutrition> rainForestAnimalDiet = new ConcurrentSkipListMap<>(comparing(Organism::getName));
+        rainForestAnimalDiet.put(createMammal("koala"), createAnimalNutrition("bamboo", 100));
+        rainForestAnimalDiet.forEach((key, value) -> logger.info(key + "-" + value));
     }
 
     private static void populateAnimalGarden() {
-        Set<Animal> gardenAnimals = new ConcurrentSkipListSet<>(comparing(Animal::getName));
-        final List<Animal> mammals = List.of(createMammal("rabbit"), createMammal("gopher"), createMammal("gopher"),
-                createMammal("tiger"));
-        final List<Animal> birds = List.of(createBird("sparrow"), createBird("parrot"));
+        Set<Organism> gardenAnimals = new ConcurrentSkipListSet<>(comparing(Organism::getName));
+        final List<Organism> mammals = generateMammals();
+        final List<Organism> birds = generateBirds();
         ExecutorService service = null;
         try {
             service = Executors.newCachedThreadPool();
             service.submit(() -> gardenAnimals.addAll(mammals));
             service.submit(() -> gardenAnimals.addAll(birds));
             Callable<String> descriptionDetailer = () -> gardenAnimals.stream()
-                    .map(Animal::toString)
+                    .map(Organism::toString)
                     .collect(Collectors.joining(", "));
             String details = service.invokeAny(List.of(descriptionDetailer));
             logger.info(details);
-        } catch (InterruptedException | ExecutionException e) {
+        } catch (Exception e) {
             logger.error("", e);
         } finally {
             if (service != null) service.shutdown();
         }
     }
 
+    private static List<Organism> generateBirds() {
+        return List.of(createBird("sparrow"), createBird("parrot"));
+    }
+
+    private static List<Organism> generateMammals() {
+        return List.of(createMammal("rabbit"), createMammal("gopher"), createMammal("gopher"),
+                createMammal("tiger"));
+    }
+
 }
 
-class Animal {
+/**
+ * Represent animals from different classes.
+ */
+class Animal implements Organism {
 
+    public static final String MSG_ERROR_ANIMAL_NAME_IS_EMPTY = "Animal name should be specified";
     private static final Map<String, Animal> animalByNameCache = new WeakHashMap<>();
     private final String name;
     private final String animalClass;
 
-    // Factory methods
+    // Constructors
 
     private Animal(String name, String animalClass) {
         this.name = name;
         this.animalClass = animalClass;
     }
 
-    // Constructors
+    // Factory methods
 
-    static Animal createMammal(String name) {
+    static Organism createMammal(String name) {
         return createAnimal(name, "mammals");
     }
 
-    static Animal createBird(String name) {
+    static Organism createBird(String name) {
         return createAnimal(name, "birds");
     }
 
-    private static synchronized Animal createAnimal(String name, String animalClass) {
+    private static synchronized Organism createAnimal(String name, String animalClass) {
         validateAnimalName(name);
         if (animalByNameCache.containsKey(name)) {
             return animalByNameCache.get(name);
@@ -89,17 +109,24 @@ class Animal {
 
     private static void validateAnimalName(String name) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("Animal name should be specified");
+            throw new IllegalArgumentException(MSG_ERROR_ANIMAL_NAME_IS_EMPTY);
         }
     }
 
     // Getters and setters
 
+    @Override
     public String getName() {
         return name;
     }
 
-    public String getAnimalClass() {
+    @Override
+    public String getKingdom() {
+        return "Animals";
+    }
+
+    @Override
+    public String getOrganismClass() {
         return animalClass;
     }
 
@@ -111,17 +138,60 @@ class Animal {
         if (!(o instanceof Animal)) return false;
         Animal animal = (Animal) o;
         return getName().equals(animal.getName()) &&
-                getAnimalClass().equals(animal.getAnimalClass());
+                getOrganismClass().equals(animal.getOrganismClass());
     }
 
     @Override
     public int hashCode() {
-        return hash(getName(), getAnimalClass());
+        return hash(getName(), getOrganismClass());
     }
 
     @Override
     public String toString() {
         return name;
+    }
+
+}
+
+class AnimalNutrition implements Nutrition {
+
+    private final String name;
+    private final long calories;
+
+    // Constructors
+
+    private AnimalNutrition(String name) {
+        this(name, 0L);
+    }
+
+    private AnimalNutrition(String name, long calories) {
+        this.name = name;
+        this.calories = calories;
+    }
+
+    // Factory methods
+
+    public static Nutrition createAnimalNutrition(String name, long calories) {
+        return new AnimalNutrition(name, calories);
+    }
+
+    // Getters and setters
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public long getCalories() {
+        return calories;
+    }
+
+    // Object inherited methods
+
+    @Override
+    public String toString() {
+        return name + " " + calories + " cal.";
     }
 
 }
