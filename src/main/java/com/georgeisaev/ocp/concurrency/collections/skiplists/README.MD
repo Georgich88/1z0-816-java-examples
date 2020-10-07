@@ -1,4 +1,4 @@
-#Understanding SkipList Collections
+# Understanding SkipList Collections
 
 The SkipList classes, `ConcurrentSkipListSet` and `ConcurrentSkipListMap`, are concurrent versions of their sorted counterparts, `TreeSet` and `TreeMap`, respectively. 
 

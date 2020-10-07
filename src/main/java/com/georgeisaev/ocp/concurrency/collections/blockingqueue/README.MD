@@ -1,4 +1,4 @@
-#Understanding Blocking Queues   
+# Understanding Blocking Queues   
 `LinkedBlockingQueue`, which implements `the BlockingQueue` interface. The `BlockingQueue` is just like a regular `Queue`, except that it includes methods that will wait a specific amount of time to complete an operation.
 
 BlockingQueue waiting methods   
