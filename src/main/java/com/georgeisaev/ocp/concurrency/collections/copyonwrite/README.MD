@@ -1,4 +1,4 @@
-#Understanding CopyOnWrite Collections
+# Understanding CopyOnWrite Collections
 
 `CopyOnWriteArrayList` and `CopyOnWriteArraySet`,  classes copy all of their elements to a new underlying structure anytime an element is added, modified, or removed from the collection. By a modified element, we mean that the reference in the collection is changed. Modifying the actual contents of objects within the collection will not cause a new structure to be allocated.
 

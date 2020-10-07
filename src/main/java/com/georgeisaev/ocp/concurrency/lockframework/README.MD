@@ -1,9 +1,9 @@
-#Lock Framework
+# Lock Framework
 
 A synchronized block supports only a limited set of functionality.
 The Concurrency API includes the Lock interface that is conceptually similar to using the synchronized keyword, but with a lot more functionalities.
 
-##ReentrantLock Interface
+## ReentrantLock Interface
 The `ReentrantLock` class provides the same features as a `synchronized` block, while adding a number of improvements.
 * Requesting a lock without blocking
 * Requesting to request a lock while blocking for a specified amount of time
@@ -18,7 +18,7 @@ The Lock interface includes four methods:
 |`boolean tryLock()`|Requests a lock and returns immediately. Returns a boolean indicating whether the lock was successfully acquired|
 |`boolean tryLock(long,TimeUnit)` |Requests a lock and blocks up to the specified time until lock is required. Returns a boolean indicating whether the lock was successfully acquired|
 
-###Acquire a Lock
+### Acquire a Lock
 While the ReentrantLock class allows you to wait for a lock, it so far suffers from the same problem as a synchronized block. A thread could end up waiting forever to obtain a lock.
 ```
 /**
@@ -35,7 +35,7 @@ public static void printMessage(Lock lock) {
 }
 ```
 
-###tryLock()
+### tryLock()
 The `tryLock()` method will attempt to acquire a lock and immediately return a boolean result indicating whether the lock was obtained. Unlike the `lock()` method, it does not wait if another thread already holds the lock.
 ```
 /**
@@ -59,7 +59,7 @@ public static void printMessage() throws InterruptedException {
 }
 ```
 
-###tryLock(long,TimeUnit)
+### tryLock(long,TimeUnit)
 The Lock interface includes an overloaded version of tryLock(long,TimeUnit) that acts like a hybrid of `lock()` and `tryLock()`.
 ```
 /**
