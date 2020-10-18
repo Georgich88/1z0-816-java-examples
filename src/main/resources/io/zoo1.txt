@@ -1,0 +1,91 @@
+Species	Status	Interactivity	Availability
+African Elephant	Vulnerable	Full	Standard
+Grizzly Bear	Least concern	Full	Standard
+West African Lion	Critically endangered	Full	Standard
+Plains Zebra	Near threatened	Full	Standard
+Hippopotamus	Vulnerable	Full	Standard
+Timber Wolf	Least concern	Full	Standard
+Ring Tailed Lemur	Endangered	Full	Standard
+Galapagos Giant Tortoise	Vulnerable	Full	Standard
+Reticulated Giraffe	Endangered	Full	Standard
+Western Chimpanzee	Critically endangered	Full	Standard
+Pygmy Hippo	Endangered	Full	Deluxe
+Komodo Dragon	Vulnerable	Full	Deluxe
+Thomson's Gazelle	Least concern	Full	Deluxe
+African Wild Dog	Endangered	Full	Standard
+Cheetah	Vulnerable	Full	Standard
+Saltwater Crocodile	Least concern	Full	Standard
+Springbok	Least concern	Full	Standard
+Black Wildebeest	Least concern	Full	Standard
+Lesser Antillean Iguana	Critically endangered	Exhibit	Standard
+Indian Peafowl	Least concern	Full	Standard
+Boa Constrictor	Least concern	Exhibit	Standard
+Bengal Tiger	Endangered	Full	Standard
+Brazilian Wandering Spider	Data deficient	Exhibit	Standard
+Spotted Hyena	Least concern	Full	Standard
+Bactrian Camel	Domesticated	Full	Standard
+Green Iguana	Least concern	Exhibit	Standard
+Bornean Orangutan	Critically endangered	Full	Standard
+Common Ostrich	Least concern	Full	Standard
+Common Warthog	Least concern	Full	Standard
+Lehmann's Poison Frog	Critically endangered	Exhibit	Standard
+Snow Leopard	Vulnerable	Full	Standard
+Aldabra Giant Tortoise	Vulnerable	Full	Standard
+Goliath Birdeater	Data deficient	Exhibit	Standard
+Titan Beetle	Data deficient	Exhibit	Standard
+Yellow Anaconda	Data deficient	Exhibit	Standard
+Indian Rhinoceros	Vulnerable	Full	Standard
+Okapi	Endangered	Full	Standard
+Indian Elephant	Endangered	Full	Standard
+Gharial	Critically endangered	Full	Standard
+Pronghorn Antelope	Least concern	Full	Standard
+Aardvark	Least concern	Full	Standard
+Mandrill	Vulnerable	Full	Standard
+Baird's Tapir	Endangered	Full	Standard
+Himalayan Brown Bear	Critically endangered	Full	Standard
+Goliath Frog	Endangered	Exhibit	Standard
+Giant Forest Scorpion	Data deficient	Exhibit	Standard
+Gemsbok	Least concern	Full	Standard
+African Buffalo	Near threatened	Full	Standard
+Red Panda	Endangered	Full	Standard
+Western Lowland Gorilla	Critically endangered	Full	Standard
+Sable Antelope	Least concern	Full	Standard
+Formosan Black Bear	Vulnerable	Full	Standard
+Nile Monitor	Data deficient	Full	Standard
+Golden Poison Frog	Endangered	Exhibit	Standard
+Bongo	Near threatened	Full	Standard
+Bonobo	Endangered	Full	Standard
+Chinese Pangolin	Critically endangered	Full	Standard
+Giant Tiger Land Snail	Data deficient	Exhibit	Standard
+Siberian Tiger	Endangered	Full	Standard
+Greater Flamingo	Least concern	Full	Standard
+Giant Panda	Vulnerable	Full	Standard
+Nyala	Least concern	Full	Standard
+Brazilian Salmon Pink Tarantula	Data deficient	Exhibit	Standard
+Eastern Brown Snake	Least concern	Exhibit	Standard
+Giant Desert Hairy Scorpion	Data deficient	Exhibit	Standard
+Red Ruffed Lemur	Critically endangered	Full	Standard
+Japanese Macaque	Least concern	Full	Standard
+Amazonian Giant Centipede	Data deficient	Exhibit	Standard
+Gila Monster	Near threatened	Exhibit	Standard
+Puff Adder	Data deficient	Exhibit	Standard
+Western Diamondback Rattlesnake	Data deficient	Exhibit	Standard
+Common Death Adder	Least concern	Exhibit	Standard
+American Bison	Near threatened	Full	Standard
+Goliath Beetle	Data deficient	Exhibit	Standard
+Giant Burrowing Cockroach	Data deficient	Exhibit	Standard
+Mexican Red Knee Tarantula	Vulnerable	Exhibit	Standard
+Polar Bear	Vulnerable	Full	Arctic Pack
+Reindeer	Vulnerable	Full	Arctic Pack
+Arctic Wolf	Least concern	Full	Arctic Pack
+Dall Sheep	Least concern	Full	Arctic Pack
+Llama	Domesticated	Full	South America Pack
+Jaguar	Near threatened	Full	South America Pack
+Giant Anteater	Vulnerable	Full	South America Pack
+Red-Eyed Tree Frog	Least concern	Exhibit	South America Pack
+Colombian White-Faced Capuchin Monkey	Least concern	Full	South America Pack
+Red Kangaroo	Least concern	Full	Australia Pack
+Dingo	Vulnerable	Full	Australia Pack
+Southern Cassowary	Least concern	Full	Australia Pack
+Eastern Blue Tongued Lizard	Data deficient	Exhibit	Australia Pack
+Koala	Vulnerable	Full	Australia Pack
