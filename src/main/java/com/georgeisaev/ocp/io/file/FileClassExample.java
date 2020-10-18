@@ -10,6 +10,7 @@ import java.util.Map;
 
 import static com.georgeisaev.ocp.io.file.ZooPropertyFile.*;
 import static java.util.Arrays.deepToString;
+import static org.apache.commons.io.FileUtils.byteCountToDisplaySize;
 
 /**
  * Possible properties of zoo management center.
@@ -36,17 +37,46 @@ public class FileClassExample {
     public static void main(String[] args) {
         var properties = retrievePropertyFile();
         logger.info(properties);
+        // Checks if a file exists
         properties.forEach((property, file) -> logger.info(property + (file.exists() ? " exists" : " does not exist")));
+        // Checks if a File reference is a file within the file system
         properties.forEach((property, file) -> logger.info(property + (file.isFile() ? " is a file" :
                 " is not a file")));
+        // Checks if a File reference is a directory within the file system
         properties.forEach((property, file) -> logger.info(property + (file.isDirectory() ? " is a directory" :
                 " is not a directory")));
-        properties.forEach((property, file) -> logger.info(property + " absolute path: " + file.getAbsolutePath()));
+        // Retrieves the name of the file or directory.
+        properties.forEach((property, file) -> logger.info(property + " name: " + file.getName()));
+        // Retrieves the absolute name of the file or directory within the file system
         properties.forEach((property, file) -> logger.info(property + " absolute file: " + file.getAbsoluteFile()));
+        // Retrieves the parent directory that the path is contained in or null if there is none
         properties.forEach((property, file) -> logger.info(property + " parent: " + file.getParent()));
+        // Returns the number of milliseconds since the epoch (number of milliseconds since
+        // 12 a.m. UTC on January 1, 1970) when the file was last modified
         properties.forEach((property, file) -> logger.info(property + " last modified: " + new Date(file.lastModified())));
-        properties.forEach((property, file) -> logger.info(property + " children: " + deepToString(file.listFiles())));
-
+        // Retrieves a list of files within a directory
+        File pathIo = properties.get(IO_PATH);
+        logger.info(pathIo + " children: " + deepToString(pathIo.listFiles()));
+        // Creates the directory named by this path
+        File nestedDir = new File(pathIo, "nested-dir");
+        if (nestedDir.mkdir()) {
+            logger.info(nestedDir + " created: " + nestedDir.getAbsolutePath());
+        }
+        // Creates the directory named by this path including any nonexistent parent directories
+        File doubleNestedDir = new File(pathIo, "double/nested/dir");
+        if (doubleNestedDir.mkdirs()) {
+            logger.info(nestedDir + " created: " + doubleNestedDir.getAbsolutePath());
+        }
+        // Renames the file or directory denoted by this path to dest and returns true only if successful
+        File firstZooFile = properties.get(ZOO_1);
+        File secondZooFile = properties.get(ZOO_2);
+        if (firstZooFile.renameTo(secondZooFile)) {
+            logger.info(firstZooFile + " was renamed to " + secondZooFile.getAbsolutePath());
+            logger.info(ZOO_1 + (firstZooFile.exists() ? " exists" : " does not exist"));
+            logger.info(ZOO_2 + (secondZooFile.exists() ? " exists" : " does not exist"));
+        }
+        // Retrieves the number of bytes in the file
+        properties.forEach((property, file) -> logger.info(property + " size: " + byteCountToDisplaySize(file.length())));
     }
 
     private static Map<ZooPropertyFile, File> retrievePropertyFile() {
