@@ -29,13 +29,17 @@ public class FileClassExample {
 
     private static final Logger logger = Logger.getLogger(FileClassExample.class);
     private static final URL URL_IO_RESOURCES = FileClassExample.class.getClassLoader().getResource("io");
-    private static final String FILEPATH_IO = URL_IO_RESOURCES.getPath();
+    private static final String FILEPATH_IO;
+    static {
+        assert URL_IO_RESOURCES != null;
+        FILEPATH_IO = URL_IO_RESOURCES.getPath();
+    }
     private static final String FILEPATH_ZOO_1 = "zoo1.txt";
     private static final String FILEPATH_IO_ZOO_2 = "zoo2.txt";
     private static final String FILEPATH_IO_ZOO_3 = "zoo3.txt";
 
     public static void main(String[] args) {
-        var properties = retrievePropertyFile();
+        Map<ZooPropertyFile, File> properties = retrievePropertyFile();
         logger.info(properties);
         // Checks if a file exists
         properties.forEach((property, file) -> logger.info(property + (file.exists() ? " exists" : " does not exist")));
