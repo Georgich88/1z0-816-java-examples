@@ -1,0 +1,25 @@
+The byte streams are primarily used to work with binary data, such as an image or executable file, while
+character streams are used to work with text files. Since the byte stream classes can write all types of
+binary data, including strings, it follows that the character stream classes aren't strictly necessary. There are
+advantages, though, to using the character stream classes, as they are specifically focused on managing
+character and string data. For example, you can use a Writer class to output a String value to a file
+without necessarily having to worry about the underlying character encoding of the file.
+The character encoding determines how characters are encoded and stored in bytes in a stream and later
+read back or decoded as characters. Although this may sound simple, Java supports a wide variety of
+character encodings, ranging from ones that may use one byte for Latin characters, UTF-8 and ASCII for
+example, to using two or more bytes per character, such as UTF-16. For the exam, you don't need to
+memorize the character encodings, but you should be familiar with the names if you come across them on
+the exam.
+
+Потоки байтов в основном используются для работы с двоичными данными, такими как изображение или исполняемый файл, в то время как
+символьные потоки используются для работы с текстовыми файлами. Поскольку классы байтового потока могут записывать все типы
+двоичные данные, включая строки, из этого следует, что классы символьных потоков не являются строго необходимыми. Есть
+Однако преимущества использования классов символьных потоков, поскольку они специально ориентированы на управление
+символьные и строковые данные. Например, вы можете использовать класс Writer для вывода строкового значения в файл.
+без необходимости беспокоиться о базовой кодировке символов файла.
+Кодировка символов определяет, как символы кодируются и сохраняются в байтах в потоке и позже.
+прочитать или расшифровать как символы. Хотя это может показаться простым, Java поддерживает широкий спектр
+кодировки символов, от тех, которые могут использовать один байт для латинских символов, UTF-8 и ASCII для
+Например, для использования двух или более байтов на символ, например UTF-16. Для экзамена не нужно
+запомните кодировки символов, но вы должны быть знакомы с именами, если вы встретите их на
+экзамен.
