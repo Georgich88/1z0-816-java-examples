@@ -17,6 +17,7 @@ public class PathExample {
         printPathInformation(Path.of("/nio/zoo/armadillo/shells.txt"));
         printPathInformation(Path.of("./zoo/armadillo/../shells.txt"));
         printSystemUserDir();
+        printAbsolutePath();
     }
 
     /**
@@ -78,5 +79,17 @@ public class PathExample {
         logger.info("user.dir: " + System.getProperty("user.dir"));
     }
 
+    /**
+     * Shows usage of both of methods {@link Path#isAbsolute()} and {@link Path#toAbsolutePath()}.
+     */
+    private static void printAbsolutePath() {
+        Path pathToBird = Paths.get(
+                "/usr/local/src/dev/projects/edu/1z0-816-java-examples/resources/nio/birds/egret.txt");
+        logger.info("pathToBird is absolute?: " + pathToBird.isAbsolute());
+        logger.info("Absolute pathToBird: " + pathToBird.toAbsolutePath());
+        Path pathToCondor = Paths.get("birds/condor.txt");
+        logger.info("pathToCondor is absolute?: " + pathToCondor.isAbsolute());
+        logger.info("Absolute pathToCondor: " + pathToCondor.toAbsolutePath());
+    }
 
 }
