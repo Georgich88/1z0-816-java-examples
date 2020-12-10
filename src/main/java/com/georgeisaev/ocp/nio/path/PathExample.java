@@ -114,7 +114,7 @@ public class PathExample {
     }
 
     /**
-     *
+     * Shows the result of {@link Path#relativize(Path)} method.
      */
     private static void printRelativePaths() {
         logger.info(LINE_SEPARATOR);
