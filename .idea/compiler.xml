@@ -9,7 +9,7 @@
         <module name="java-examples-1z0-816" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="11">
       <module name="java-examples-1z0-816" target="11" />
     </bytecodeTargetLevel>
   </component>
