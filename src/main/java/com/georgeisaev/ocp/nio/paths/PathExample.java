@@ -1,4 +1,4 @@
-package com.georgeisaev.ocp.nio.path;
+package com.georgeisaev.ocp.nio.paths;
 
 import org.apache.log4j.Logger;
 
